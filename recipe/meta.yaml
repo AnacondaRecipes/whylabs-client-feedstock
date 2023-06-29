@@ -47,4 +47,4 @@ about:
   summary: Public Python client for WhyLabs API
   description: WhyLabs API that enables end-to-end AI observability
   dev_url: https://github.com/whylabs/whylabs-client-python
-  doc_url: https://docs.whylabs.ai
+  doc_url: https://docs.whylabs.ai/docs
