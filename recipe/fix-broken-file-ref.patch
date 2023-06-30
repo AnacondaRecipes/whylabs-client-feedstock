@@ -1,0 +1,13 @@
+diff --git a/setup.py b/b/setup.py
+index 1e8bc06..d529a24 100644
+--- a/setup.py
++++ b/setup.py
+@@ -13,7 +13,7 @@ from setuptools import setup, find_packages  # noqa: H301
+ 
+ from pathlib import Path
+ this_directory = Path(__file__).parent
+-long_description = (this_directory / "RELEASE.md").read_text()
++long_description = (this_directory / "README.md").read_text()
+ 
+ NAME = "whylabs-client"
+ VERSION = "0.5.1"

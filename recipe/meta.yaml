@@ -1,0 +1,50 @@
+{% set version = "0.5.2" %}
+{% set name = "whylabs-client" %}
+{% set sha256 = "b7e7e78cc9524718d927954b06f95f52a7a3cca322bd4a0dc90ae8afc8164dcf" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+  patches:
+    # setup.py refers to missing release.md
+    - fix-broken-file-ref.patch
+
+build:
+  number: 0
+  skip: true  # [py<36]
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-build-isolation . -v
+
+requirements:
+  build:
+    - patch  # [not win]
+    - m2-patch  # [win]
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
+  run:
+    - python
+    - urllib3 >=1.25.3
+    - python-dateutil
+
+test:
+  imports:
+    - whylabs_client
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://whylabs.ai
+  license: Apache-2.0
+  license_family: Apache
+  summary: Public Python client for WhyLabs API
+  description: WhyLabs API that enables end-to-end AI observability
+  dev_url: https://github.com/whylabs/whylabs-client-python
+  doc_url: https://docs.whylabs.ai/docs
