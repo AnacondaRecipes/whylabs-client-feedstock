@@ -1,6 +1,6 @@
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 {% set name = "whylabs-client" %}
-{% set sha256 = "f7aacfab7d176812c2eb4cdeb8c52521eed0d30bc2a0836399798197a513cf04" %}
+{% set sha256 = "b7e7e78cc9524718d927954b06f95f52a7a3cca322bd4a0dc90ae8afc8164dcf" %}
 
 package:
   name: {{ name }}
