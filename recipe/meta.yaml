@@ -14,14 +14,13 @@ source:
     - fix-broken-file-ref.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<36]
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-build-isolation . -v
 
 requirements:
   build:
     - patch  # [not win]
-    - m2-patch  # [win]
   host:
     - python
     - pip
