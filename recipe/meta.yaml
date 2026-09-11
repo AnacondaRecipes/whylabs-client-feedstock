@@ -19,8 +19,6 @@ build:
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-build-isolation . -v
 
 requirements:
-  build:
-    - patch  # [not win]
   host:
     - python
     - pip
