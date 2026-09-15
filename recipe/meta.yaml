@@ -7,11 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-  patches:
-    # setup.py refers to missing release.md
-    - fix-broken-file-ref.patch
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: {{ sha256 }}
+    patches:
+      # setup.py refers to missing release.md
+      - fix-broken-file-ref.patch
+  # LICENSE is not included in the sdist; pull it from the repo at a pinned commit
+  - url: https://raw.githubusercontent.com/whylabs/whylabs-client-python/23016e653d9d3998020aeb5eb93ef4e1119f118d/LICENSE
+    sha256: cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
 
 build:
   number: 1
